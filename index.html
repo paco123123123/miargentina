@@ -19,25 +19,6 @@
     <script src="scripts/saveConfigData.js"></script>
     <script src="scripts/config-dni.js"></script>
 
-<!-- Web App para iOS -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="apple-touch-icon" href="icon.png">
-
-<!-- Web App universal -->
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#1976d2">
-
-<!-- Service Worker -->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(reg => console.log('SW registrado'))
-        .catch(err => console.error('SW error:', err));
-    });
-  }
-</script>
 </head>
 
 <body id="body">

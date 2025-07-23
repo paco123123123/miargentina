@@ -1,0 +1,94 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* overflow: hidden; */
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+}
+
+@font-face {
+    font-family: OCRB;
+    src: url("/res/fonts/ocrb10bt.ttf") format("truetype");
+}
+
+#title{
+    font-weight: 500 !important;
+}
+
+#img-and-mrz-container{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    height: 50%;
+    max-height: 350px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+#dni-image{
+    display: block;
+    height: calc(143px * 1.2);
+    width: calc(115px * 1.2);
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 15px auto 25px;
+}
+
+#dni-qr{
+    display: block;
+    width: calc(140px * 1.6);
+    height: calc(40px * 1.6);
+    background-color: white;
+    margin: 30px auto 40px;
+}
+
+#details-container {
+    display: block;
+    margin-top: -10px;
+}
+
+.title {
+    font-size: calc(20px * var(--dni-size-multiplier));
+    margin-left: 2rem;
+    bottom: calc(15px * var(--dni-size-multiplier));
+    font-weight: 600;
+}
+
+.data {
+    font-size: calc(20px * var(--dni-size-multiplier));
+    margin-left: 2rem;
+    margin-top: -15px;
+}
+
+#dni-firma {
+    display: block;
+    height: calc(75px * 1.2);
+    width: auto;
+    object-fit: cover;
+    margin: 0 auto 25px;
+}
+
+#dni-mrz{
+    font-size: calc(22.3px * var(--dni-size-multiplier));
+    font-family: 'OCRB' !important;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: calc(9px * var(--dni-size-multiplier));
+    line-height: 25px;
+    display: block;
+    padding-bottom: .5rem;
+    text-align: center;
+    justify-content: center;
+    white-space: pre-line;
+    font-family: "Courier New", Courier, monospace;
+    font-variant-numeric: tabular-nums;
+}

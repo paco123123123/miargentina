@@ -1,0 +1,328 @@
+:root {
+    --dni-size-multiplier: 1;
+}
+
+@font-face {
+    font-family: OCRB;
+    src: url("/res/fonts/ocrb10bt.ttf") format("truetype");
+}
+
+#dni-card-container {
+    width: calc(26rem * var(--dni-size-multiplier));
+    height: calc(16.3rem * var(--dni-size-multiplier));
+    perspective: 2000px;
+}
+
+#dni-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    position: relative;
+    transform-style: preserve-3d;
+    background-color: transparent;
+    transition: transform .5s;
+    border: .5px solid rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, .25);
+}
+
+#dni-template > a{
+    text-transform: uppercase;
+}
+
+#details-container {
+    display: block;
+    margin-top: -15px;
+}
+
+.card__face {
+    position: absolute;
+    height: auto;
+    width: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card__face--front {
+    width: 100.1%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: rotateY(180deg);
+}
+
+.card__face--back {
+    width: 100%;
+    height: 100%;
+    transform: rotateY(0deg);
+    border-radius: 8px;
+}
+
+#dni-card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+#dni-template-front {
+    background-image: url('/res/arg_front_bg.png');
+    background-size: 100%;
+}
+
+#dni-template-back {
+    background-image: url('/res/arg_back_bg.png');
+    background-size: 100%;
+}
+
+.dni-param {
+    /* filter: blur(0.45px); */
+    font-weight: normal;
+    letter-spacing: 0.1px;
+}
+
+.dni-item {
+    user-select: none;
+    font-family: 'Arial', sans-serif;
+    pointer-events: none;
+}
+
+#dni-surname {
+    font-size: calc(12px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc(50.5px * var(--dni-size-multiplier));
+}
+
+#dni-name {
+    font-size: calc(12px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc(78px * var(--dni-size-multiplier));
+}
+
+#dni-sex {
+    font-size: calc(12px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc(107.5px * var(--dni-size-multiplier));
+}
+
+#dni-birth {
+    font-size: calc(12px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc(135px * var(--dni-size-multiplier));
+}
+
+#dni-issue {
+    font-size: calc(12px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc(165px * var(--dni-size-multiplier));
+}
+
+#dni-expiration {
+    font-size: calc(12px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc(195px * var(--dni-size-multiplier));
+}
+
+#dni-tramite-num {
+    font-size: calc(12.5px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc(222.58px * var(--dni-size-multiplier));
+    max-width: calc(80px * var(--dni-size-multiplier));
+    overflow: visible;
+    word-wrap: break-word;
+    letter-spacing: 0px;
+}
+
+#dni-image {
+    height: calc(152.5px * var(--dni-size-multiplier));
+    width: calc(122.5px * var(--dni-size-multiplier));
+    position: relative;
+    top: calc(55px * var(--dni-size-multiplier));
+    left: calc(10px * var(--dni-size-multiplier));
+    object-fit: cover;
+    filter: blur(0.2px);
+}
+
+#dni-firma {
+    height: calc(30px * var(--dni-size-multiplier));
+    width: calc(65px * var(--dni-size-multiplier));
+    position: absolute;
+    top: calc(132px * var(--dni-size-multiplier));
+    right: calc(35px * var(--dni-size-multiplier));
+    object-fit: contain;
+}
+
+#dni-qr {
+    position: absolute;
+    width: calc(150px * var(--dni-size-multiplier));
+    height: calc(40px * var(--dni-size-multiplier));
+    background-color: transparent;
+    bottom: 10px;
+    right: 15.5px;
+}
+
+#dni-number {
+    font-size: calc(20px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(9.75px * var(--dni-size-multiplier));
+    bottom: calc(15px * var(--dni-size-multiplier));
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+#dni-nationality {
+    font-size: calc(12px * var(--dni-size-multiplier));
+    position: absolute;
+    right: calc(137.5px * var(--dni-size-multiplier));
+    top: calc(107.5px * var(--dni-size-multiplier));
+}
+
+#dni-ejemplar {
+    font-size: calc(12px * var(--dni-size-multiplier));
+    position: absolute;
+    right: calc(61px * var(--dni-size-multiplier));
+    top: calc(107.5px * var(--dni-size-multiplier));
+}
+
+#dni-address-inc {
+    font-size: calc(12px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(8px * var(--dni-size-multiplier));
+    top: calc(11px * var(--dni-size-multiplier));
+}
+
+#dni-place {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(8px * var(--dni-size-multiplier));
+    top: calc(42.5px * var(--dni-size-multiplier));
+}
+
+#dni-mrz{
+    font-size: calc(22.3px * var(--dni-size-multiplier));
+    position: absolute;
+    font-family: 'OCRB' !important;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: calc(9px * var(--dni-size-multiplier));
+    line-height: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    white-space: pre-line;
+    font-family: "Courier New", Courier, monospace;
+    font-variant-numeric: tabular-nums;
+}
+
+.dni-subtitle{
+    font-weight: normal;
+    letter-spacing: 0.1px;
+}
+
+#dni-surname-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc((50.5px - 10.5px) * var(--dni-size-multiplier));
+}
+
+#dni-name-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc((78px - 10.5px) * var(--dni-size-multiplier));
+}
+
+#dni-sex-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc((107.5px - 10.5px) * var(--dni-size-multiplier));
+}
+
+#dni-birth-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc((135px - 10.5px) * var(--dni-size-multiplier));
+}
+
+#dni-issue-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc((165px - 10.5px) * var(--dni-size-multiplier));
+}
+
+#dni-expiration-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc((195px - 10.5px) * var(--dni-size-multiplier));
+}
+
+#dni-tramite-num-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(136px * var(--dni-size-multiplier));
+    top: calc((222.58px - 10.5px) * var(--dni-size-multiplier));
+}
+
+#dni-firma-title {
+    height: calc(25px * var(--dni-size-multiplier));
+    width: calc(60px * var(--dni-size-multiplier));
+    position: absolute;
+    top: calc(132px * var(--dni-size-multiplier));
+    right: calc(40px * var(--dni-size-multiplier));
+    object-fit: contain;
+}
+
+#dni-number-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    left: calc(9.75px * var(--dni-size-multiplier));
+    bottom: calc((15px + 23px) * var(--dni-size-multiplier));
+}
+
+#dni-nationality-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    right: calc((137.5px - 38px) * var(--dni-size-multiplier));
+    top: calc((107.5px - 10.5px) * var(--dni-size-multiplier));
+}
+
+#dni-ejemplar-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    right: calc((61px - 28px) * var(--dni-size-multiplier));
+    top: calc((107.5px - 10.5px) * var(--dni-size-multiplier));
+}
+
+#dni-signature-title {
+    font-size: calc(9px * var(--dni-size-multiplier));
+    position: absolute;
+    right: calc((40px - 25px) * var(--dni-size-multiplier));
+    top: calc((132px + 35px) * var(--dni-size-multiplier));
+    max-width: calc(95px * var(--dni-size-multiplier));
+    overflow: visible;
+    text-align: center;
+    word-wrap: break-word;
+    letter-spacing: 0px;
+}
+
+@media screen and (max-width: 420px) {
+    :root{
+        --dni-size-multiplier: 0.825;
+    }
+}
+@media screen and (max-width: 360px) {
+    :root{
+        --dni-size-multiplier: 0.8;
+    }
+}
