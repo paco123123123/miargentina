@@ -31,3 +31,18 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+window.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const res = await fetch('datos/datos.json');
+    const datos = await res.json();
+
+    document.getElementById('nombre').textContent = datos.nombre;
+    document.getElementById('dni').textContent = datos.dni;
+    document.getElementById('fecha_nacimiento').textContent = datos.fecha_nacimiento;
+    document.getElementById('sexo').textContent = datos.sexo;
+
+    document.getElementById('foto').src = 'datos/foto.jpg';
+  } catch (e) {
+    console.error('Error cargando datos:', e);
+  }
+});
