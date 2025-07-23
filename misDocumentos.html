@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Argentina</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/navbar.css">
+    <link rel="stylesheet" href="stylesheets/misDocumentos.css">
+    <link rel="stylesheet" href="stylesheets/dni-card.css">
+    <link rel="stylesheet" href="stylesheets/mdb.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
+    <link rel="shortcut icon" href="res/logo.png" type="image/x-icon">
+    <link rel="preload" href="res/Jaldi-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <script src="scripts/config-dni.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div id="back-arrow-btn" onclick="history.back()">
+            <img src="res/md_nav_back.png" style="height: 25px;" alt="">
+        </div>
+
+        <h1 id="title">Mis documentos</h1>
+    </div>
+
+    <div id="content">
+        <div class="cards mt-3 mb-3" id="covid">
+            <div class="cards-img-container">
+                <img src="res/documento_rosa.png" alt="" class="cards-img">
+            </div>
+            <div class="cards-text-container">
+                <p class="cards-text">Certificado vacunación Covid 19</p>
+            </div>
+            <div class="cards-arrow-container">
+                <img src="res/down-arrow-svgrepo-com.svg" alt="" class="cards-arrow">
+            </div>
+        </div>
+        <div class="cards" id="dni">
+
+        </div>
+        <div class="cards mt-3 mb-3" id="cuil">
+
+        </div>
+    </div>
+
+    <script src="scripts/touchHandling.js"></script>
+    <script src="scripts/buttons.js"></script>
+    <script src="scripts/qr-generator.js"></script>
+    <script>config(); generateQR()</script>
+</body>
+
+</html>

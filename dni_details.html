@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Argentina</title>
+    <link rel="stylesheet" href="stylesheets/navbar.css">
+    <link rel="stylesheet" href="stylesheets/details.css">
+    <link rel="shortcut icon" href="res/logo.png" type="image/x-icon">
+    <link rel="preload" href="res/Jaldi-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <script src="scripts/config-dni.js"></script>
+    <script src="scripts/qr-generator.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pkoretic/pdf417-generator@master/lib/libbcmath.js"
+        type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pkoretic/pdf417-generator@master/lib/bcmath.js"
+        type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pkoretic/pdf417-generator@master/lib/pdf417.js"
+        type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div id="back-arrow-btn" onclick="history.back()">
+            <img src="res/md_nav_back.png" style="height: 25px;" alt="">
+        </div>
+
+        <h1 id="title">Dni Digital - Detalle</h1>
+    </div>
+
+    <div id="img-and-mrz-container">
+        <img class="" src="" alt="dni image" id="dni-image">
+        <canvas id="dni-qr"></canvas>
+    </div>
+    <div id="details-container">
+        <div class="single-detail">
+            <p class="title" id="dni-number-title">Número de DNI</p>
+            <p class="data" id="dni-number-raw"></p>
+            <p class="title" id="dni-tramite-num-title">Número de trámite</p>
+            <p class="data" id="dni-tramite-num"></p>
+            <p class="title" id="dni-surname-title">Apellido</p>
+            <p class="data" id="dni-surname"></p>
+            <p class="title" id="dni-name-title">Nombre</p>
+            <p class="data" id="dni-name"></p>
+            <p class="title" id="dni-sex-title">Sexo</p>
+            <p class="data" id="dni-sex"></p>
+            <p class="title" id="dni-nationality-title">Nacionalidad</p>
+            <p class="data" id="dni-nationality">ARG</p>
+            <p class="title" id="dni-ejemplar-title">Ejemplar</p>
+            <p class="data" id="dni-ejemplar"></p>
+            <p class="title" id="dni-oficina-title">Número de oficina</p>
+            <p class="data" id="dni-oficina">7372</p>
+            <p class="title" id="dni-birth-title">Fecha de nacimiento</p>
+            <p class="data" id="dni-birth-details"></p>
+            <p class="title" id="dni-issue-title">Fecha de emisión</p>
+            <p class="data" id="dni-issue-details"></p>
+            <p class="title" id="dni-expiration-title">Fecha de vencimiento</p>
+            <p class="data" id="dni-expiration-details"></p>
+            <p class="title" id="dni-address-title">Domicilio</p>
+            <p class="data" id="dni-address"></p>
+            <p class="title" id="dni-place-title">Lugar de nacimiento</p>
+            <p class="data" id="dni-place">-</p>
+            <p class="title" style="margin-bottom: 0;" id="dni-firma-title">Firma</p>
+            <img class="dni-item" src="" alt="dni image" id="dni-firma">
+            <p id="dni-mrz"></p>
+        </div>
+    </div>
+    <script>generateQR(); config();</script>
+</body>
+
+</html>

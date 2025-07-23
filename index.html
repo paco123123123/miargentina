@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Argentina</title>
+    <link rel="shortcut icon" href="res/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="stylesheets/navbar.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <link rel="stylesheet" href="stylesheets/footer.css">
+    <link rel="stylesheet" href="stylesheets/mdb.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js" integrity="sha256-Lsk+CDPOzTapLoAzWW0G/WeQeViS3FMzywpzPZV8SXk=" crossorigin="anonymous"></script>
+    <script src="scripts/saveConfigData.js"></script>
+    <script src="scripts/config-dni.js"></script>
+
+</head>
+
+<body id="body">
+    <div id="header">
+        <nav id="sidenav-1" class="sidenav" data-mdb-hidden="true">
+            <ul class="sidenav-menu">
+              <li class="sidenav-item" style="text-align: center; margin-top: 7.5%;">
+                <img src="res/miargentina_logo_drawer.png" alt="" style="width: 15rem;">
+              </li>
+              <li class="sidenav-item" style="text-align: center; margin-top: 6%;">
+                <div id="nombreApellido" style="margin: 0 auto; width: 87.5%; text-align: left; font-weight: 700; font-size: 19px; color: #000;">
+                    <span class="nombre-verificado" id="dni-name-raw"></span>
+                    <span class="nombre-verificado" id="dni-surname-raw"></span>
+                    <img src="res/ic_id_validada.png" alt="" style="position: absolute; width: 25px; margin-left: 7.5px; margin-top: -2.5px;">
+                </div>
+                <div id="cuil" style="margin: 0 auto; width: 87.5%; text-align: left; color: #000;">
+                    <span>CUIL: </span>
+                    <span id="dni-cuil-1"></span><span id="dni-number-raw"></span><span id="dni-cuil-2"></span>
+                </div>
+                <div id="identidadValidada" style="margin: 0 auto; width: 87.5%; text-align: left; font-weight: 700; color: #000;">
+                    <span>Identidad validada</span>
+                </div>
+              </li>
+              <p class="border-bottom mt-3 mb-3"></p>
+              <li class="sidenav-item" style="text-align: center; margin-top: 6%;">
+                <div id="miPerfil" class="miperfil">
+                    <img src="res/user_drawer.png" alt="" style="width: 25px; height: 25px;">
+                    <span class="ms-4">Mi perfil</span>
+                </div>
+                <div id="hijosAsociados" class="miperfil">
+                    <img src="res/hijo_asociado.png" alt="" style="width: 25px; height: 26px;">
+                    <span class="ms-4">Hijos/as asociados</span>
+                </div>
+                <div id="notificaciones" class="miperfil">
+                    <img src="res/notificacion_drawer.png" style="width: 25px; height: 25px;" alt="">
+                    <span class="ms-4">Notificaciones</span>
+                </div>
+              </li><p class="border-bottom mt-3 mb-3"></p>
+              <li class="sidenav-item" style="text-align: center; margin-top: 6%;">
+                <div id="miPerfil" class="miperfil">
+                    <img src="res/acerca_drawer.png" alt="" style="width: 25px; height: 25px;">
+                    <span class="ms-4">Acerca de esta aplicación</span>
+                </div>
+                <div id="hijosAsociados" class="miperfil">
+                    <img src="res/terminos_drawer.png" alt="" style="width: 25px; height: 26px;">
+                    <span class="ms-4">Términos y condiciones</span>
+                </div>
+              </li><p class="border-bottom mt-3 mb-3"></p>
+              <li class="sidenav-item" style="text-align: center; margin-top: 6%;">
+                <div id="miPerfil" class="miperfil">
+                    <img src="res/logout_drawer.png" alt="" style="width: 25px; height: 25px;">
+                    <span class="ms-4">Cerrar sesión</span>
+                </div>
+                <div id="hijosAsociados" class="miperfil">
+                    <img src="res/ic_home_grey.png" alt="" style="width: 25px; height: 26px;">
+                    <span class="ms-4">Volver al inicio</span>
+                </div>
+              </li>
+            </ul>
+        </nav>
+
+        <div id="three-bars-btn" data-mdb-toggle="sidenav" data-mdb-target="#sidenav-1" aria-controls="#sidenav-1" aria-haspopup="true">
+            <svg id="three-bars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                <path fill-rule="evenodd"
+                    d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+                </path>
+            </svg>
+            <!-- <button data-mdb-toggle="sidenav" data-mdb-target="#sidenav-1" class="btn btn-primary"
+                aria-controls="#sidenav-1" aria-haspopup="true">
+                <i class="fas fa-bars"></i>
+            </button> -->
+        </div>
+        <h1 id="title">
+            <font style="color: black; font-weight: bolder;">mi</font>Argentina
+        </h1>
+    </div>
+
+    <div id="content">
+        <div id="grid-container">
+            <div class="grid-item" onclick="window.location.href = 'dni.html';" id="btn-1">
+                <div class="grid-item-content">
+                    <img class="grid-item-icon" src="res/misdocumentos.png">
+                    <a class="grid-item-text">Mis documentos</a>
+                </div>
+            </div>
+            
+            <div class="grid-item fake-btn" id="btn-2">
+                <div class="grid-item-content">
+                    <img class="grid-item-icon" src="res/misvehiculos.png">
+                    <a class="grid-item-text">Mis vehículos</a>
+                </div>
+            </div>
+            
+            <div class="grid-item fake-btn" id="btn-3">
+                <div class="grid-item-content">
+                    <img class="grid-item-icon" src="res/misalud.png">
+                    <a class="grid-item-text">Mi salud</a>
+                </div>
+            </div>
+            
+            <div class="grid-item fake-btn" id="btn-4">
+                <div class="grid-item-content">
+                    <img class="grid-item-icon" src="res/miscobros.png">
+                    <a class="grid-item-text">Mis cobros</a>
+                </div>
+            </div>
+
+            <div class="grid-item fake-btn" id="btn-5">
+                <div class="grid-item-content">
+                    <img class="grid-item-icon" src="res/misturnos.png">
+                    <a class="grid-item-text">Mis turnos</a>
+                </div>
+            </div>
+            
+            <div class="grid-item fake-btn" id="btn-6">
+                <div class="grid-item-content">
+                    <img class="grid-item-icon" src="res/mistramites.png">
+                    <a class="grid-item-text">Mis trámites</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="footer-item active">
+            <img src="res/ic_home_24px.png" alt="" class="footer-icon">
+            <a class="footer-text">INICIO</a>
+        </div>
+        <div class="footer-item">
+            <img src="res/ic_novedades_grey.png" alt="" class="footer-icon">
+            <a class="footer-text">NOVEDADES</a>
+        </div>
+        <div class="footer-item">
+            <img src="res/ic_telefonos_grey.png" alt="" class="footer-icon">
+            <a class="footer-text">TELÉFONOS</a>
+        </div>
+    </div>
+
+    <script src="scripts/mdb.min.js"></script>
+    <script src="scripts/unlock.js"></script>
+    <script>config();</script>
+</body>
+
+</html>
