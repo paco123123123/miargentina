@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar</title>
+    <link rel="shortcut icon" href="res/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="stylesheets/config.css">
+    <link rel="stylesheet" href="stylesheets/navbar.css">
+    <script src="scripts/saveConfigData.js"></script>
+    <script>
+        function onlyOne(checkbox) {
+            var checkboxes = document.querySelectorAll('.checkbox');
+            checkboxes.forEach((item) => {
+                if (item !== checkbox) item.checked = false
+            })
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div id="back-arrow-btn" onclick="window.location.href = '/'">
+            <svg id="back-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill-rule="evenodd"
+                    d="M10.78 19.03a.75.75 0 01-1.06 0l-6.25-6.25a.75.75 0 010-1.06l6.25-6.25a.75.75 0 111.06 1.06L5.81 11.5h14.44a.75.75 0 010 1.5H5.81l4.97 4.97a.75.75 0 010 1.06z">
+                </path>
+            </svg>
+        </div>
+
+        <h1 id="title">Configurar DNI Digital</h1>
+    </div>
+
+    <div id="form-container">
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-number">Número DNI</label>
+            </div>
+            <div class="input-field">
+                <input class="text" maxlength="8" type="number" id="dni-number" name="dni-number" placeholder="Ingrese su número de DNI">
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-name">Nombre(s)</label>
+            </div>
+            <div class="input-field">
+                <input class="text" type="text" id="dni-name" name="dni-name" placeholder="Ingrese sus nombres">
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-surname">Apellido(s)</label>
+            </div>
+            <div class="input-field">
+                <input class="text" type="text" id="dni-surname" name="dni-surname" placeholder="Ingrese sus apellidos">
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-label">
+                <label>Sexo</label>
+            </div>
+            <div class="input-field">
+                <div class="checkbox-list-container">
+                    <input class="checkbox" type="checkbox" id="dni-sex-m" name="dni-sex-m" placeholder="Ingrese sus apellidos" onclick="onlyOne(this)">
+                    <label for="dni-sex-m">M</label>
+                    <input class="checkbox" type="checkbox" id="dni-sex-f" name="dni-sex-f" placeholder="Ingrese sus apellidos" onclick="onlyOne(this)">
+                    <label for="dni-sex-f">F</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-birth">Fecha de nacimiento</label>
+            </div>
+            <div class="input-field">
+                <input class="date" type="date" id="dni-birth" name="dni-birth" min="1900-01-01"  onclick="this.max = new Date().toISOString().split('T')[0];">
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-emission">Fecha de emisión</label>
+            </div>
+            <div class="input-field">
+                <input class="date" type="date" id="dni-emission" name="dni-emission" min="1900-01-01" onclick="this.max = new Date().toISOString().split('T')[0];">
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-expiration">Fecha de expiración</label>
+            </div>
+            <div class="input-field">
+                <input class="date" type="date" id="dni-expiration" name="dni-expiration" min="1900-01-01">
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-tramite-num">Número de trámite</label>
+            </div>
+            <div class="input-field">
+                <input class="text" maxlength="16" type="number" id="dni-tramite-num" name="dni-tramite-num" placeholder="Ingrese su número de trámite">
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-ejemplar">Ejemplar</label>
+            </div>
+            <div class="input-field">
+                <input class="text" maxlength="15" type="text" id="dni-ejemplar" name="dni-ejemplar" placeholder="Ingrese el ejemplar de su DNI">
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-first-cuil">Primeros 2 dígitos del CUIL</label>
+            </div>
+            <div class="input-field">
+                <input class="text" maxlength="2" type="number" id="dni-first-cuil" name="dni-first-cuil" placeholder="Ingrese los primeros 2 dígitos de su CUIL">
+            </div>
+        </div>
+        
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-last-cuil">Último dígito del CUIL</label>
+            </div>
+            <div class="input-field">
+                <input class="text" maxlength="1" type="number" id="dni-last-cuil" name="dni-last-cuil" placeholder="Ingrese el último dígito de su CUIL">
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-address">Dirección</label>
+            </div>
+            <div class="input-field">
+                <input class="text" maxlength="" type="text" id="dni-address" name="dni-address" placeholder="Ingrese su direccion tal cual aparece en el DNI">
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-photo">Foto</label>
+            </div>
+            <div class="input-field">
+                <input onchange="preview_image(event, 'dni-image-viewer')" class="file" type="file" id="dni-photo" name="dni-photo" accept="image/*">
+            </div>
+
+            <img src="res/default-dni.png" alt="my photo" id="dni-image-viewer">
+        </div>
+
+        <div class="input-container">
+            <div class="input-label">
+                <label for="dni-firma">Foto</label>
+            </div>
+            <div class="input-field">
+                <input onchange="preview_image(event, 'dni-firma-viewer')" class="file" type="file" id="dni-firma" name="dni-firma" accept="image/*">
+            </div>
+
+            <img src="res/default-dni.png" alt="my firma" id="dni-firma-viewer">
+        </div>
+
+        <div id="save-btn-container">
+            <a id="save-btn" class="save-state" onclick="saveData()">Guardar</a>
+        </div>
+
+    </div>
+
+    <script>
+        restoreDataFromStorage();
+    </script>
+</body>
+
+</html>
